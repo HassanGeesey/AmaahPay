@@ -109,7 +109,7 @@ export const Hero = () => (
           flexWrap: 'wrap'
         }}>
           <motion.a
-            href="/app-debug.apk"
+            href="/app-debug.zip"
             download
             className="btn-primary"
             whileHover={{ scale: 1.05 }}
@@ -308,7 +308,7 @@ export const DownloadSection = () => (
         </p>
         
         <motion.a
-          href="/app-debug.apk"
+          href="/app-debug.zip"
           download
           className="btn-primary"
           whileHover={{ scale: 1.05 }}
