@@ -21,7 +21,7 @@ export const Hero = () => (
     {/* Mobile Nav */}
     <div className="mobile-nav">
       <motion.a
-        href="/app-debug.zip"
+        href="https://github.com/HassanGeesey/AmaahPay/raw/refs/heads/main/app-debug.apk"
         download
         className="btn btn-primary"
         style={{ width: '100%' }}
@@ -75,7 +75,7 @@ export const Hero = () => (
           flexWrap: 'wrap'
         }}>
           <motion.a
-            href="/app-debug.zip"
+            href="https://github.com/HassanGeesey/AmaahPay/raw/refs/heads/main/app-debug.apk"
             download="AmaahPay.apk"
             className="btn btn-primary hide-mobile"
             whileHover={{ scale: 1.02 }}
@@ -206,7 +206,7 @@ export const DownloadSection = () => (
         </p>
 
         <motion.a
-          href="/app-debug.zip"
+          href="https://github.com/HassanGeesey/AmaahPay/raw/refs/heads/main/app-debug.apk"
           download="AmaahPay.apk"
           className="btn btn-primary"
           whileHover={{ scale: 1.02 }}
