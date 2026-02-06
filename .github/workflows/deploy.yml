@@ -41,7 +41,7 @@ jobs:
         run: pnpm run build
 
       - name: Copy APK
-        run: cp app-debug.apk dist/
+        run: cp app-debug.apk dist/ || true
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
