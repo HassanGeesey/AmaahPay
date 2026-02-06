@@ -10,7 +10,7 @@ interface CardProps {
 export const Card = ({ children, className = '' }: CardProps) => (
   <motion.div
     className={`card ${className}`}
-    whileHover={{ y: -4 }}
+    whileHover={{ y: -2 }}
     transition={{ type: "spring", stiffness: 400, damping: 25 }}
   >
     {children}
@@ -23,14 +23,14 @@ interface FeatureIconProps {
 
 export const FeatureIcon = ({ icon: Icon }: FeatureIconProps) => (
   <div className="feature-icon">
-    <Icon size={24} strokeWidth={1.5} />
+    <Icon size={22} strokeWidth={1.5} />
   </div>
 );
 
 export const PhoneMockup = () => (
   <motion.div
     className="phone-mockup"
-    initial={{ opacity: 0, y: 40 }}
+    initial={{ opacity: 0, y: 30 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, delay: 0.4 }}
   >
@@ -40,38 +40,38 @@ export const PhoneMockup = () => (
       {/* Header */}
       <div style={{ 
         background: 'var(--accent-blue)', 
-        borderRadius: '16px',
-        padding: '20px',
+        borderRadius: '12px',
+        padding: '14px',
         color: 'white',
-        boxShadow: '0 4px 20px rgba(29, 44, 243, 0.3)'
+        boxShadow: '0 4px 15px rgba(37, 99, 235, 0.3)'
       }}>
-        <div style={{ fontSize: '0.75rem', opacity: 0.8, marginBottom: '4px' }}>
+        <div style={{ fontSize: '0.65rem', opacity: 0.8, marginBottom: '2px' }}>
           Today's Sales
         </div>
-        <div style={{ fontSize: '1.75rem', fontWeight: 700 }}>
+        <div style={{ fontSize: '1.4rem', fontWeight: 700 }}>
           $2,450.00
         </div>
       </div>
       
       {/* Stats */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
         <div style={{ 
           background: 'var(--bg-card)', 
-          borderRadius: '12px',
-          padding: '16px',
+          borderRadius: '10px',
+          padding: '10px',
           border: '1px solid var(--border)'
         }}>
-          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Products</div>
-          <div style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-primary)' }}>24</div>
+          <div style={{ fontSize: '0.6rem', color: 'var(--text-muted)', marginBottom: '2px' }}>Products</div>
+          <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)' }}>24</div>
         </div>
         <div style={{ 
           background: 'var(--bg-card)', 
-          borderRadius: '12px',
-          padding: '16px',
+          borderRadius: '10px',
+          padding: '10px',
           border: '1px solid var(--border)'
         }}>
-          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Customers</div>
-          <div style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--text-primary)' }}>18</div>
+          <div style={{ fontSize: '0.6rem', color: 'var(--text-muted)', marginBottom: '2px' }}>Customers</div>
+          <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)' }}>18</div>
         </div>
       </div>
       
@@ -79,11 +79,12 @@ export const PhoneMockup = () => (
       <div style={{ 
         flex: 1,
         background: 'var(--bg-card)', 
-        borderRadius: '16px',
-        padding: '16px',
-        border: '1px solid var(--border)'
+        borderRadius: '12px',
+        padding: '10px',
+        border: '1px solid var(--border)',
+        overflow: 'hidden'
       }}>
-        <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '12px' }}>
+        <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: '8px' }}>
           Recent Sales
         </div>
         
@@ -96,35 +97,35 @@ export const PhoneMockup = () => (
             display: 'flex', 
             justifyContent: 'space-between',
             alignItems: 'center',
-            padding: '10px 0',
+            padding: '6px 0',
             borderBottom: i < 2 ? '1px solid var(--border)' : 'none'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <div style={{ 
-                width: '32px', 
-                height: '32px', 
+                width: '26px', 
+                height: '26px', 
                 borderRadius: '50%',
                 background: 'var(--bg-secondary)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '0.75rem',
+                fontSize: '0.65rem',
                 fontWeight: 600,
-                color: 'var(--text-primary)',
+                color: 'var(--text-secondary)',
                 border: '1px solid var(--border)'
               }}>
                 {tx.name[0]}
               </div>
               <div>
-                <div style={{ fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-primary)' }}>
+                <div style={{ fontSize: '0.75rem', fontWeight: 500, color: 'var(--text-primary)' }}>
                   {tx.name}
                 </div>
-                <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+                <div style={{ fontSize: '0.6rem', color: 'var(--text-muted)' }}>
                   {tx.items} items
                 </div>
               </div>
             </div>
-            <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--accent-blue)' }}>
+            <div style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--accent-blue)' }}>
               +${tx.amount}
             </div>
           </div>
@@ -135,13 +136,13 @@ export const PhoneMockup = () => (
       <div style={{ 
         display: 'flex', 
         justifyContent: 'space-around',
-        padding: '8px 0'
+        padding: '4px 0'
       }}>
         {[TrendingUp, Users, ShoppingCart, CreditCard].map((Icon, i) => (
           <div key={i} style={{ 
             color: i === 0 ? 'var(--accent-blue)' : 'var(--text-muted)'
           }}>
-            <Icon size={20} strokeWidth={2} />
+            <Icon size={18} strokeWidth={2} />
           </div>
         ))}
       </div>
