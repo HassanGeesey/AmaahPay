@@ -1,130 +1,146 @@
 import { motion } from 'framer-motion';
-import { Users, Server, Download, TrendingUp, CreditCard } from 'lucide-react';
-import { GlassCard, FeatureIcon, DownloadCard, PhoneMockup } from './ui';
+import { Download, Users, Wifi, TrendingUp, Shield, Smartphone, ChevronRight } from 'lucide-react';
+import { Card, FeatureIcon, PhoneMockup } from './ui';
 
 export const Hero = () => (
-  <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
+  <section style={{ minHeight: '85vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
     <div className="container">
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.div
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255, 107, 53, 0.15)', padding: '8px 16px', borderRadius: '50px', marginBottom: '24px' }}
-          >
-            <span style={{ width: '8px', height: '8px', background: '#ff6b35', borderRadius: '50%', animation: 'pulse 2s infinite' }} />
-            <span style={{ fontSize: '14px', fontWeight: 500, color: '#ff6b35' }}>Somalia's #1 Shop Management</span>
-          </motion.div>
-          
-          <h1 className="heading-xl" style={{ marginBottom: '24px' }}>
-            Run Your Shop <br />
-            <span className="text-gradient">Like a Pro</span>
-          </h1>
-          
-          <p style={{ fontSize: '1.25rem', opacity: 0.8, marginBottom: '40px', maxWidth: '500px' }}>
-            Track sales, manage customers, and grow your business with the app trusted by Somali merchants.
-          </p>
-          
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-            <motion.a
-              href="/app-debug.apk"
-              download
-              className="btn-primary"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '12px' }}
-            >
-              <Download size={20} />
-              Download APK
-              <span style={{ fontSize: '12px', opacity: 0.8 }}>11.8 MB</span>
-            </motion.a>
-          </div>
-          
-          <motion.div
-            style={{ display: 'flex', gap: '40px', marginTop: '60px' }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
-            {[
-              { value: '10K+', label: 'Downloads' },
-              { value: '5K+', label: 'Active Users' },
-              { value: '50M+', label: 'Transactions' },
-            ].map((stat, i) => (
-              <div key={i}>
-                <div style={{ fontSize: '2rem', fontWeight: 700, color: '#ff6b35' }}>{stat.value}</div>
-                <div style={{ fontSize: '14px', opacity: 0.6 }}>{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
-        </motion.div>
+      <motion.div
+        style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="badge badge-purple" style={{ marginBottom: '32px' }}>
+          Somalia's #1 Shop Management
+        </div>
         
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          style={{ display: 'flex', justifyContent: 'center' }}
-        >
-          <PhoneMockup />
-        </motion.div>
-      </div>
+        <h1 className="heading-xl" style={{ marginBottom: '24px' }}>
+          The easiest way to
+          <br />
+          manage your shop
+        </h1>
+        
+        <p style={{ 
+          fontSize: '1.25rem', 
+          color: 'var(--text-secondary)', 
+          marginBottom: '40px',
+          maxWidth: '560px',
+          margin: '0 auto 40px'
+        }}>
+          Track sales, manage customers, and grow your business with the app trusted by thousands of Somali merchants.
+        </p>
+        
+        <div style={{ 
+          display: 'flex', 
+          gap: '16px', 
+          justifyContent: 'center',
+          flexWrap: 'wrap'
+        }}>
+          <motion.a
+            href="/app-debug.apk"
+            download
+            className="btn-primary"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Download APK
+            <ChevronRight size={18} />
+          </motion.a>
+          
+          <motion.a
+            href="#features"
+            className="btn-text"
+            whileHover={{ x: 4 }}
+          >
+            Learn more
+            <ChevronRight size={16} />
+          </motion.a>
+        </div>
+      </motion.div>
+      
+      {/* Phone Mockup Below */}
+      <motion.div
+        style={{ 
+          display: 'flex', 
+          justifyContent: 'center',
+          marginTop: '60px'
+        }}
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <PhoneMockup />
+      </motion.div>
     </div>
   </section>
 );
 
-export const About = () => (
-  <section id="about">
+export const Features = () => (
+  <section id="features" style={{ background: 'var(--bg-secondary)' }}>
     <div className="container">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        style={{ textAlign: 'center', maxWidth: '560px', margin: '0 auto 64px' }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        style={{ textAlign: 'center', marginBottom: '80px' }}
+        transition={{ duration: 0.5 }}
       >
-        <h2 className="heading-lg" style={{ marginBottom: '24px' }}>
-          Everything You Need to <span className="text-gradient">Succeed</span>
+        <h2 className="heading-lg" style={{ marginBottom: '16px' }}>
+          Everything you need
         </h2>
-        <p style={{ fontSize: '1.2rem', opacity: 0.7, maxWidth: '600px', margin: '0 auto' }}>
+        <p style={{ fontSize: '1.125rem', color: 'var(--text-secondary)' }}>
           Powerful features designed specifically for Somali small businesses
         </p>
       </motion.div>
       
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '32px' }}>
+      <div className="grid-3">
         {[
           {
             icon: TrendingUp,
-            gradient: 'linear-gradient(135deg, #ff6b35, #ffb347)',
-            title: 'Track Sales in Real-Time',
-            description: 'Monitor daily revenue, view transaction history, and analyze your best-selling products instantly.',
+            title: 'Track Sales',
+            description: 'Monitor daily revenue, view transaction history, and analyze your best-selling products.',
           },
           {
             icon: Users,
-            gradient: 'linear-gradient(135deg, #7dd3c0, #34d399)',
             title: 'Manage Customers',
-            description: 'Keep customer records, track credit, and build relationships with loyalty programs.',
+            description: 'Keep customer records, track credit, and build relationships with detailed profiles.',
           },
           {
-            icon: Server,
-            gradient: 'linear-gradient(135deg, #818cf8, #6366f1)',
+            icon: Wifi,
             title: 'Works Offline',
             description: 'No internet? No problem. All features work offline and sync when you reconnect.',
+          },
+          {
+            icon: Shield,
+            title: 'Secure Data',
+            description: 'Your business data is encrypted and backed up automatically to keep it safe.',
+          },
+          {
+            icon: Smartphone,
+            title: 'Mobile First',
+            description: 'Designed for mobile from the ground up with an intuitive touch interface.',
+          },
+          {
+            icon: Download,
+            title: 'Free Forever',
+            description: 'No hidden fees, no subscriptions. AmaahPay is completely free to use.',
           },
         ].map((feature, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.15, duration: 0.6 }}
+            transition={{ delay: i * 0.1, duration: 0.5 }}
           >
-            <GlassCard style={{ padding: '40px', height: '100%' }}>
-              <FeatureIcon icon={feature.icon} gradient={feature.gradient} />
-              <h3 className="heading-md" style={{ marginBottom: '16px' }}>{feature.title}</h3>
-              <p style={{ opacity: 0.7, lineHeight: 1.7 }}>{feature.description}</p>
-            </GlassCard>
+            <Card>
+              <FeatureIcon icon={feature.icon} />
+              <h3 className="heading-md" style={{ marginBottom: '8px' }}>{feature.title}</h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                {feature.description}
+              </p>
+            </Card>
           </motion.div>
         ))}
       </div>
@@ -132,62 +148,112 @@ export const About = () => (
   </section>
 );
 
-export const DownloadSection = () => (
-  <section id="download">
+export const Stats = () => (
+  <section style={{ padding: '60px 0' }}>
     <div className="container">
-      <DownloadCard>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="heading-lg" style={{ marginBottom: '16px' }}>
-            Get Started with <span className="text-gradient">AmaahPay</span>
-          </h2>
-          <p style={{ fontSize: '1.1rem', opacity: 0.8, marginBottom: '40px' }}>
-            Download the APK and start managing your shop today
-          </p>
-          
-          <div style={{ display: 'flex', gap: '32px', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-            <motion.a
-              href="/app-debug.apk"
-              download
-              className="btn-primary"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              style={{ padding: '24px 48px', fontSize: '1.2rem' }}
-            >
-              <Download size={24} />
-              Download APK
-            </motion.a>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-              <div style={{ width: '120px', height: '120px', background: 'white', borderRadius: '16px', padding: '10px' }}>
-                <svg viewBox="0 0 100 100" style={{ width: '100%', height: '100%' }}>
-                  <rect fill="#0a0f1e" width="100" height="100" rx="8" />
-                  <text x="50" y="55" textAnchor="middle" fill="white" fontSize="10" fontFamily="monospace">SCAN ME</text>
-                  <path d="M15 15h20v5H15zM15 25h20v5H15zM15 35h20v5H15zM15 45h5v20h-5zM35 45h5v20h-5zM50 15h5v5h-5zM60 15h5v5h-5zM50 25h5v5h-5zM60 25h5v5h-5zM70 15h15v15h-15z" fill="white" />
-                </svg>
-              </div>
-              <span style={{ fontSize: '14px', opacity: 0.6 }}>Scan to download</span>
-            </div>
+      <motion.div
+        style={{ 
+          display: 'flex', 
+          justifyContent: 'center',
+          gap: '80px',
+          flexWrap: 'wrap',
+          textAlign: 'center'
+        }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        {[
+          { value: '10K+', label: 'Downloads' },
+          { value: '5K+', label: 'Active Users' },
+          { value: '50M+', label: 'Transactions' },
+        ].map((stat, i) => (
+          <div key={i}>
+            <div className="stat-value">{stat.value}</div>
+            <div className="stat-label">{stat.label}</div>
           </div>
-          
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '32px', marginTop: '48px', flexWrap: 'wrap' }}>
-            {[
-              { icon: Download, text: 'Free Forever' },
-              { icon: Server, text: 'Offline Mode' },
-              { icon: CreditCard, text: 'No Card Required' },
-            ].map((item, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', opacity: 0.7 }}>
-                <item.icon size={18} />
-                <span>{item.text}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </DownloadCard>
+        ))}
+      </motion.div>
     </div>
   </section>
+);
+
+export const DownloadSection = () => (
+  <section style={{ background: 'var(--bg-secondary)' }}>
+    <div className="container">
+      <motion.div
+        style={{ textAlign: 'center', maxWidth: '560px', margin: '0 auto' }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <h2 className="heading-lg" style={{ marginBottom: '16px' }}>
+          Ready to get started?
+        </h2>
+        <p style={{ 
+          fontSize: '1.125rem', 
+          color: 'var(--text-secondary)',
+          marginBottom: '32px'
+        }}>
+          Download AmaahPay today and join thousands of Somali merchants managing their shops smarter.
+        </p>
+        
+        <motion.a
+          href="/app-debug.apk"
+          download
+          className="btn-primary"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          style={{ padding: '14px 32px', fontSize: '1rem' }}
+        >
+          <Download size={18} />
+          Download APK
+          <ChevronRight size={18} />
+        </motion.a>
+        
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          gap: '24px',
+          marginTop: '32px',
+          color: 'var(--text-muted)',
+          fontSize: '0.875rem'
+        }}>
+          <span>Free Forever</span>
+          <span>•</span>
+          <span>Works Offline</span>
+          <span>•</span>
+          <span>No Sign-up</span>
+        </div>
+      </motion.div>
+    </div>
+  </section>
+);
+
+export const Footer = () => (
+  <footer style={{ 
+    background: 'var(--bg-primary)', 
+    borderTop: '1px solid var(--border)',
+    padding: '40px 0'
+  }}>
+    <div className="container">
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        gap: '16px'
+      }}>
+        <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>
+          <strong style={{ color: 'var(--text-primary)' }}>AmaahPay</strong> — Shop management for Somali merchants
+        </div>
+        
+        <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>
+          © 2026 AmaahPay
+        </div>
+      </div>
+    </div>
+  </footer>
 );
