@@ -1,11 +1,11 @@
-import { Hero, Features, Stats, DownloadSection, Footer } from './components/sections';
+import { Hero, Features, DownloadSection, Footer } from './components/sections';
 
 function App() {
   return (
     <div className="App">
+      <div className="grain" />
       <Hero />
       <Features />
-      <Stats />
       <DownloadSection />
       <Footer />
     </div>
