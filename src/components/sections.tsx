@@ -41,7 +41,7 @@ export const Hero = () => (
         transition={{ duration: 0.8 }}
       >
         <img 
-          src="/app_icon.png" 
+          src="https://ik.imagekit.io/Geesey/app_icon-removebg-preview.png" 
           alt="AmaahPay" 
           className="app-icon"
         />
@@ -191,7 +191,7 @@ export const DownloadSection = () => (
         transition={{ duration: 0.6 }}
       >
         <img 
-          src="/app_icon.png" 
+          src="https://ik.imagekit.io/Geesey/app_icon-removebg-preview.png" 
           alt="AmaahPay" 
           className="app-icon"
           style={{ marginBottom: 'var(--space-md)' }}
@@ -257,7 +257,7 @@ export const Footer = () => (
           fontWeight: 700,
           fontSize: '1.1rem'
         }}>
-          <img src="/app_icon.png" alt="" style={{ width: '24px', height: '24px', borderRadius: '4px' }} />
+          <img src="https://ik.imagekit.io/Geesey/app_icon-removebg-preview.png" alt="" style={{ width: '24px', height: '24px', borderRadius: '4px' }} />
           AmaahPay
         </div>
         <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
