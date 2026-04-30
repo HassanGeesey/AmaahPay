@@ -92,7 +92,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(height: 60),
-              _buildLogo(),
+              _buildLogo(isDark),
               const SizedBox(height: 48),
               _buildTitle(),
               const SizedBox(height: 8),
@@ -109,17 +109,25 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     );
   }
 
-  Widget _buildLogo() {
-    return Container(
-      width: 72,
-      height: 72,
-      decoration: D.darkCard,
-      child: const Icon(Icons.storefront_rounded, size: 36, color: C.textInverse),
+  Widget _buildLogo(bool isDark) {
+    return Center(
+      child: Container(
+        width: 100,
+        height: 100,
+        padding: const EdgeInsets.all(16),
+        decoration: D.card(isDark: isDark).copyWith(
+          borderRadius: BorderRadius.circular(24),
+        ),
+        child: Image.asset(
+          'Android-icons/Icon-192.png',
+          fit: BoxFit.contain,
+        ),
+      ),
     );
   }
 
   Widget _buildTitle() {
-    return Text('AmaahPay', style: T.sectionHeader.copyWith(fontSize: 28, fontWeight: FontWeight.w700));
+    return Text('AmaahPay', style: T.sectionHeader.copyWith(fontSize: 28, fontWeight: FontWeight.w700, color: C.primaryNavy));
   }
 
   Widget _buildSubtitle(bool isDark) {

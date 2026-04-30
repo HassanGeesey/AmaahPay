@@ -17,7 +17,7 @@ class NeoTheme {
   static const Color bgCard = Color(0xFFFFFFFF);
   static const Color borderLight = Color(0xFFE3E8EE);
   static const Color textDark = Color(0xFF0F2A44);
-  static const Color textMuted = Color(0xFF6B7C8F);
+  static const Color textMuted = Color(0xFF4A5568);
   static const Color textInverse = Color(0xFFFFFFFF);
 
   // --- Dark Theme Colors ---
