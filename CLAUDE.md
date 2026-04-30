@@ -97,10 +97,14 @@ lib/
    - Account **auto-deactivates** at cycle end; admin reactivates after next payment
 
 5. **Credit/Deposit Sales Logic:**
-   - Customer deposits with outstanding credit → amount first deducts credit, remainder goes to deposit
-   - Customer uses credit with deposit funds → amount first deducts deposit, remainder becomes credit
+   - Customer deposits while having outstanding credit → amount first deducts from credit, remainder goes to deposit
+   - Customer pays for a sale while having both credit and deposit → amount first deducts from deposit, remainder becomes credit
 
 6. **Password Reset:** Users cannot self-reset. Flow: user contacts admin → admin creates new password.
+
+## No Code Generation
+
+This repo has no build_runner or code generation commands. Standard Flutter build only.
 
 ## Design System
 

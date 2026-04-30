@@ -35,7 +35,7 @@ class PdfService {
           return pw.Column(
             crossAxisAlignment: pw.CrossAxisAlignment.start,
             children: [
-              _buildHeader(title, customerName),
+              _buildSummaryHeader(title, '', customerName),
               pw.SizedBox(height: 20),
               _buildSummary(totalUsd, totalCash, totalDeposit, totalCredit),
               pw.SizedBox(height: 20),
@@ -106,9 +106,9 @@ class PdfService {
           return pw.Column(
             crossAxisAlignment: pw.CrossAxisAlignment.start,
             children: [
-              _buildSummaryHeader('Sales Summary', dateRangeLabel),
+              _buildSummaryHeader('Sales Summary', dateRangeLabel, null),
               pw.SizedBox(height: 24),
-              _buildSummaryGrid(totalUsd, totalCash, totalDeposit, totalCredit, transactionCount, avgPerSale),
+              _buildSummary(totalUsd, totalCash, totalDeposit, totalCredit),
               pw.SizedBox(height: 24),
               _buildFooter(),
             ],
@@ -159,7 +159,7 @@ class PdfService {
     return file;
   }
 
-  static pw.Widget _buildSummaryHeader(String title, String dateRange) {
+  static pw.Widget _buildSummaryHeader(String title, String dateRange, String? customerName) {
     return pw.Container(
       padding: const pw.EdgeInsets.all(16),
       decoration: pw.BoxDecoration(
@@ -357,6 +357,92 @@ class PdfService {
     return pw.Padding(
       padding: const pw.EdgeInsets.all(8),
       child: pw.Text(text, style: const pw.TextStyle(fontSize: 9)),
+    );
+  }
+
+  static pw.Widget _buildInventoryHeader(int totalProducts, double totalValue) {
+    return pw.Container(
+      padding: const pw.EdgeInsets.all(16),
+      decoration: pw.BoxDecoration(
+        color: _navyColor,
+        borderRadius: pw.BorderRadius.circular(8),
+      ),
+      child: pw.Row(
+        mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+        children: [
+          pw.Column(
+            crossAxisAlignment: pw.CrossAxisAlignment.start,
+            children: [
+              pw.Text(
+                'AmaahPay - Inventory Report',
+                style: pw.TextStyle(
+                  color: PdfColors.white,
+                  fontSize: 20,
+                  fontWeight: pw.FontWeight.bold,
+                ),
+              ),
+              pw.SizedBox(height: 4),
+              pw.Text(
+                'Total Products: $totalProducts',
+                style: const pw.TextStyle(
+                  color: PdfColors.white,
+                  fontSize: 12,
+                ),
+              ),
+            ],
+          ),
+          pw.Column(
+            crossAxisAlignment: pw.CrossAxisAlignment.end,
+            children: [
+              pw.Text(
+                'Total Value',
+                style: const pw.TextStyle(color: PdfColors.white, fontSize: 10),
+              ),
+              pw.Text(
+                _currencyFormat.format(totalValue),
+                style: pw.TextStyle(
+                  color: PdfColors.white,
+                  fontSize: 16,
+                  fontWeight: pw.FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  static pw.Widget _buildProductsTable(List<ProductModel> products) {
+    return pw.Table(
+      border: pw.TableBorder.all(color: PdfColors.grey300),
+      columnWidths: {
+        0: const pw.FlexColumnWidth(3),
+        1: const pw.FlexColumnWidth(2),
+        2: const pw.FlexColumnWidth(2),
+        3: const pw.FlexColumnWidth(2),
+      },
+      children: [
+        pw.TableRow(
+          decoration: pw.BoxDecoration(
+            color: _navyColor,
+          ),
+          children: [
+            _tableHeader('Product'),
+            _tableHeader('Unit'),
+            _tableHeader('Price (USD)'),
+            _tableHeader('Price (SOS)'),
+          ],
+        ),
+        ...products.map((p) => pw.TableRow(
+          children: [
+            _tableCell(p.name),
+            _tableCell(p.unit),
+            _tableCell(_currencyFormat.format(p.defaultPriceUsd)),
+            _tableCell(p.defaultPriceSos.toStringAsFixed(0)),
+          ],
+        )),
+      ],
     );
   }
 
